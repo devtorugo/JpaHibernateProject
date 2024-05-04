@@ -1,5 +1,9 @@
 package fiap.ddd.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Calendar;
 
@@ -15,7 +19,7 @@ public class Produto {
 
     @Column(name="nm_produto", nullable = false, length = 100)
     private String nome;
-    @Column (name="vl_value")
+    @Column (name="vl_preco")
     private double preco;
     @Temporal(TemporalType.DATE)
     @Column(name="dt_data_validade")
@@ -24,6 +28,16 @@ public class Produto {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
+    @Column(name="dt_cadastro")
+    @CreationTimestamp
+    private Calendar dataCadastro;
+
+    @Column(name = "dt_modificacao")
+    @UpdateTimestamp
+    private Calendar dataModificacao;
+
+    @Formula("vl_preco * 0.9")
+    private double precoDesconto;
 
 
 }
