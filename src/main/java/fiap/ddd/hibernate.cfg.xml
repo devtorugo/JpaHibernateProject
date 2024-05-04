@@ -9,6 +9,11 @@
         <property name="hibernate.connection.username">RM553108</property>
         <property name="hibernate.connection.password">300305</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+
+        <!-- Mapeamento de entidades -->
+        <mapping class="src.main.fiap.ddd.entities.Produto"/>
+        <!-- Adicione mais mapeamentos de entidades conforme necessário -->
+
         <!-- Outras configurações do Hibernate aqui -->
     </session-factory>
 </hibernate-configuration>
