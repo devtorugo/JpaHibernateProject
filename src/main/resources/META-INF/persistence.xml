@@ -8,6 +8,7 @@
         <class>fiap.ddd.entities.Produto</class>
         <class>fiap.ddd.entities.Fornecedor</class>
         <class>fiap.ddd.entities.Cliente</class>
+        <class>fiap.ddd.entities.Estado</class>
         <!-- Adicione mais classes de entidade conforme necessário -->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
