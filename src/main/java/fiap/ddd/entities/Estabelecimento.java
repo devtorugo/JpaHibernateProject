@@ -22,6 +22,17 @@ public class Estabelecimento {
     @JoinColumn(name="id_tipo_estabelecimento")
     private TipoEstabelecimento tipo;
 
+    public Estabelecimento(){
+
+    }
+
+    public Estabelecimento(Integer id, String nome, ContratoAluguel contratoAluguel, TipoEstabelecimento tipo) {
+        this.id = id;
+        this.nome = nome;
+        this.contratoAluguel = contratoAluguel;
+        this.tipo = tipo;
+    }
+
     public Integer getId() {
         return id;
     }

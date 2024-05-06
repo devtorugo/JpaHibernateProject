@@ -18,6 +18,14 @@ public class TipoEstabelecimento {
     @OneToMany(mappedBy = "tipo")
     private List<Estabelecimento> estabelecimentos;
 
+    public TipoEstabelecimento(){}
+
+    public TipoEstabelecimento(int id, String nome, List<Estabelecimento> estabelecimentos) {
+        this.id = id;
+        this.nome = nome;
+        this.estabelecimentos = estabelecimentos;
+    }
+
     public int getId() {
         return id;
     }
