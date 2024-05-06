@@ -4,19 +4,25 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class TesteBusca {
+public class TesteRemocao {
     public static void main(String[] args) {
+
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("jpaHibernateproject");
         EntityManager em = fabrica.createEntityManager();
 
-       Cliente cliente = new Cliente(1, "Thiago");
-        System.out.printf(cliente.getId()+ " " + cliente.getNome());
+        Cliente cliente = em.find(Cliente.class, 1);
+        em.remove(cliente);
 
-        em.merge(cliente);
+        try{
 
-        cliente.setNome("Henrique");
-        em.getTransaction().begin();
-        em.getTransaction().commit();
+            em.getTransaction().begin();
+            em.getTransaction().commit();
+        } catch (Exception e){
+            if (em.getTransaction().isActive()){
+                em.getTransaction().rollback();
+            }
+        }
+
 
         em.close();
         fabrica.close();
