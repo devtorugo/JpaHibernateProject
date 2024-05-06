@@ -14,6 +14,9 @@ public class Estabelecimento {
     @Column(name="nm_estabelecimento", length = 50)
     private String nome;
 
+    @OneToOne(mappedBy = "estabelecimento")
+    private ContratoAluguel contratoAluguel;
+
     public Integer getId() {
         return id;
     }
@@ -28,5 +31,13 @@ public class Estabelecimento {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public ContratoAluguel getContratoAluguel() {
+        return contratoAluguel;
+    }
+
+    public void setContratoAluguel(ContratoAluguel contratoAluguel) {
+        this.contratoAluguel = contratoAluguel;
     }
 }

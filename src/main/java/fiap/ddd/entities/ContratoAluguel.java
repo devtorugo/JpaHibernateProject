@@ -18,6 +18,9 @@ public class ContratoAluguel {
     @Temporal(TemporalType.DATE)
     @Column(name="dt_vencimento_aluguel")
     private Calendar dataVenciento;
+    @OneToOne
+    @JoinColumn(name="id_estabelecimento")
+    private Estabelecimento estabelecimento;
 
     public int getId() {
         return id;
@@ -41,5 +44,13 @@ public class ContratoAluguel {
 
     public void setDataVenciento(Calendar dataVenciento) {
         this.dataVenciento = dataVenciento;
+    }
+
+    public Estabelecimento getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public void setEstabelecimento(Estabelecimento estabelecimento) {
+        this.estabelecimento = estabelecimento;
     }
 }
