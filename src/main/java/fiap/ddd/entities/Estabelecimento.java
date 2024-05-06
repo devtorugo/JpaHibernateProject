@@ -17,6 +17,11 @@ public class Estabelecimento {
     @OneToOne(mappedBy = "estabelecimento")
     private ContratoAluguel contratoAluguel;
 
+
+    @ManyToOne
+    @JoinColumn(name="id_tipo_estabelecimento")
+    private TipoEstabelecimento tipo;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +44,13 @@ public class Estabelecimento {
 
     public void setContratoAluguel(ContratoAluguel contratoAluguel) {
         this.contratoAluguel = contratoAluguel;
+    }
+
+    public TipoEstabelecimento getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoEstabelecimento tipo) {
+        this.tipo = tipo;
     }
 }
