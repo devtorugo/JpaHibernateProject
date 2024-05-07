@@ -22,6 +22,9 @@ public class Cliente {
         this.nome = nome;
     }
 
+    public Cliente(int i, String thiago, Object o) {
+    }
+
     public int getId() {
         return id;
     }

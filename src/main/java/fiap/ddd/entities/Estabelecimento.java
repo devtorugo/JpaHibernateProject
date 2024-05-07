@@ -18,7 +18,7 @@ public class Estabelecimento {
     private ContratoAluguel contratoAluguel;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="id_tipo_estabelecimento")
     private TipoEstabelecimento tipo;
 
@@ -31,6 +31,9 @@ public class Estabelecimento {
         this.nome = nome;
         this.contratoAluguel = contratoAluguel;
         this.tipo = tipo;
+    }
+
+    public Estabelecimento(int i, String fiapPet, Object o, Object o1, TipoEstabelecimento tipo) {
     }
 
     public Integer getId() {
