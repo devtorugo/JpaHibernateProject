@@ -1,13 +1,13 @@
 package fiap.ddd.entities.entities.dao;
 
 import fiap.ddd.entities.entities.Cliente;
-import jakarta.persistence.EntityManager;
 
-public class ClienteDAO {
+import javax.persistence.EntityManager;
 
-    private EntityManager em;
+public class ClienteDAO extends GenericDAO<Cliente, Integer>{
 
-    public void cadastrar (Cliente cliente){
-        em.persist(cliente);
+
+    public ClienteDAO(EntityManager em) {
+        super(em);
     }
 }

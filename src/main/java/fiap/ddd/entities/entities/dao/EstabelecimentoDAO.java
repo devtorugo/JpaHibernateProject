@@ -1,12 +1,12 @@
 package fiap.ddd.entities.entities.dao;
 import fiap.ddd.entities.entities.Estabelecimento;
-import jakarta.persistence.EntityManager;
 
-public class EstabelecimentoDAO {
+import javax.persistence.EntityManager;
 
-    private EntityManager em;
+public class EstabelecimentoDAO extends GenericDAO<Estabelecimento, Integer>{
 
-    public void cadastrar (Estabelecimento est){
-        em.persist(est);
+
+    public EstabelecimentoDAO(EntityManager em) {
+        super(em);
     }
 }

@@ -1,29 +1,30 @@
 import fiap.ddd.entities.entities.Cliente;
+import fiap.ddd.entities.entities.dao.ClienteDAO;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class Teste {
     public static void main(String[] args) {
-        EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("jpaHibernateproject");
-        EntityManager em = fabrica.createEntityManager();
+        EntityManager em = Persistence
+                .createEntityManagerFactory("jpaHibernate").createEntityManager();
+        ClienteDAO clienteDAO = new ClienteDAO(em);
 
-        Cliente cliente = new Cliente();
-        cliente.setNome("Payatos");
+        Cliente entidade = new Cliente(0, "Poyatos");
+        clienteDAO.cadastrar(entidade);
 
-        try{
-            em.persist(cliente);
-            em.getTransaction().begin();
-            em.getTransaction().commit();
-        } catch (Exception e){
-            if (em.getTransaction().isActive()){
-                em.getTransaction().rollback();
-            }
+        try {
+            clienteDAO.commit();
+        } catch (Exception e) {
+          e.printStackTrace();
         }
 
-
-        em.close();
-        fabrica.close();
+        List<Cliente> lista = clienteDAO.listar();
+        for (Cliente cliente : lista){
+            System.out.println(cliente.getId() + " " + cliente.getNome());
+        }
     }
+
+
 }
