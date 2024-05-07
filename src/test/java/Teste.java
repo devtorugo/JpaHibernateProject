@@ -1,4 +1,4 @@
-import fiap.ddd.entities.Cliente;
+import fiap.ddd.entities.entities.Cliente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

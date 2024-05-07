@@ -1,10 +1,9 @@
-import fiap.ddd.entities.Cliente;
-import fiap.ddd.entities.ContratoAluguel;
-import fiap.ddd.entities.Estabelecimento;
-import fiap.ddd.entities.TipoEstabelecimento;
+import fiap.ddd.entities.entities.Cliente;
+import fiap.ddd.entities.entities.ContratoAluguel;
+import fiap.ddd.entities.entities.Estabelecimento;
+import fiap.ddd.entities.entities.TipoEstabelecimento;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.Calendar;

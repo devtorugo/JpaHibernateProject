@@ -1,4 +1,4 @@
-package fiap.ddd.entities;
+package fiap.ddd.entities.entities;
 
 import jakarta.persistence.*;
 
