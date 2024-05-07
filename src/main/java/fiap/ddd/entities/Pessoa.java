@@ -3,6 +3,7 @@ package fiap.ddd.entities;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy =InheritanceType.JOINED)
 public class Pessoa {
     @Id
     @SequenceGenerator(name= "pessoa", sequenceName = "sq_pessoa", allocationSize = 1)
