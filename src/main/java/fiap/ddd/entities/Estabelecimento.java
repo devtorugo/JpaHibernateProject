@@ -1,36 +1,28 @@
 package fiap.ddd.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-@Entity(name = "tb_estabelecimento")
-@Table(name = "tb_estabelecimento")
+import java.util.Calendar;
+
+@Entity
+@Table(name = "tbl_estabelecimento")
 public class Estabelecimento {
     @Id
     @SequenceGenerator(name= "estabelecimento", sequenceName = "sq_tb_estabelecimento", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estabelecimento")
-    @Column(name = "id_Estabelecimento")
+    @Column(name = "id_estabelecimento")
     private Integer id;
 
-    @Column(name="nm_estabelecimento", length = 50)
+    @Column(name="nome_estabelecimento", length = 50)
     private String nome;
-
-    @OneToOne(mappedBy = "estabelecimento")
-    private ContratoAluguel contratoAluguel;
-
-
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name="id_tipo_estabelecimento")
-    private TipoEstabelecimento tipo;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name= "dh_criacao")
+    private Calendar dataCriacao;
 
     public Estabelecimento(){
 
-    }
-
-    public Estabelecimento(Integer id, String nome, ContratoAluguel contratoAluguel, TipoEstabelecimento tipo) {
-        this.id = id;
-        this.nome = nome;
-        this.contratoAluguel = contratoAluguel;
-        this.tipo = tipo;
     }
 
     public Estabelecimento(int i, String fiapPet, Object o, Object o1, TipoEstabelecimento tipo) {
@@ -52,19 +44,5 @@ public class Estabelecimento {
         this.nome = nome;
     }
 
-    public ContratoAluguel getContratoAluguel() {
-        return contratoAluguel;
-    }
 
-    public void setContratoAluguel(ContratoAluguel contratoAluguel) {
-        this.contratoAluguel = contratoAluguel;
-    }
-
-    public TipoEstabelecimento getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoEstabelecimento tipo) {
-        this.tipo = tipo;
-    }
 }
